@@ -1,5 +1,4 @@
 
-
 fun main() {
     // RANGES
     val closedRange = 0..5
@@ -36,6 +35,7 @@ fun main() {
     for (i in 1..count) {
         sum += i
     }
+
     println(sum)
     println("------")
 
