@@ -1,3 +1,3 @@
 # KotlinNotesPowa
 
-Kotlin Ders Notları yer almaktadır. 
+I wanted to share the information I gathered from various sources.
