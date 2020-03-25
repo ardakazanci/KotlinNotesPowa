@@ -65,7 +65,6 @@ fun main() {
 
     // WITH SCOPE FUNCTIONS
     // Mantık olarak Run ile aynıdır farkları Null kontrol mekanizmasıdır.
-
     fun performRunOperation2() {
         val person: User? = null
         person?.run {
@@ -87,5 +86,66 @@ fun main() {
             this?.displayInfo()
         }
     }
+    // APPLY SCOPE FUNCTIONS
+    // With ' ten farkı null kontrol mekanizması daha kolay
+
+    fun performApplyOperation() {
+        val person: User? = null
+        person?.apply {
+            name = "asdf"
+            contactNumber = "1234"
+            address = "wasd"
+            displayInfo()
+        }
+    }
+
+    // Run ifadesi bir return ifadesi kabul ederken Apply ifadesi return ifadesi kabul etmez.
+
+    // Android Programlama örneği
+
+    /**
+     *
+     * Normal Kullanım
+    fun createIntent(intentData: String, intentAction: String): Intent {
+    val intent = Intent()
+    intent.action = intentAction
+    intent.data = Uri.parse(intentData)
+    return intent
+    }
+
+    // Apply Kullanımı
+    fun createIntent(intentData: String, intentAction: String) =
+    Intent().apply {
+    action = intentAction
+    data = Uri.parse(intentData)
+    }
+     *
+     *
+     */
+
+
+    // ALSO SCOPE FUNCTIONS
+    // Örnekte görüldüğü üzere zincirleme bir işlem sağlanabilir.
+    // Let'ten farkı return ifadesi kabul etmemesidir.
+    fun performAlsoOperation() {
+        val name = User().also {
+            print("Current name is: ${it.name}\n")
+            it.name = "ModifiedName"
+        }.run {
+            "Modified name is: $name\n"
+        }
+        print(name)
+    }
+
+
+    // ÖZET
+
+    /**
+    it              this
+
+    Return Result :        let             run,with
+    Return Object :        also            apply
+
+     */
 
 }
