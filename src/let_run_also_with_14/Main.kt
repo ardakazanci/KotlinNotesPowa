@@ -51,4 +51,41 @@ fun main() {
         print(it)
     }
 
+
+    // RUN SCOPE FUNCTIONS
+    // This olarak ifade eder. Kullanım durumuna göre Let yerine kullanılabilir
+    // ek olarak null kontrolü sağlar.
+    var name: String? = "Abcd"
+    fun performRunOperation() {
+        val name = User().name?.run {
+            "The name of the Person is: $this"
+        }
+        print(name)
+    }
+
+    // WITH SCOPE FUNCTIONS
+    // Mantık olarak Run ile aynıdır farkları Null kontrol mekanizmasıdır.
+
+    fun performRunOperation2() {
+        val person: User? = null
+        person?.run {
+            name = "asdf"
+            contactNumber = "1234"
+            address = "wasd"
+            displayInfo()
+        }
+    }
+
+    // Eğer with kullansaydık
+    // Null kontrol mekanizması her bir this içerisinde ele alınmalıydı.
+    fun performWithFunctions() {
+        val person: User? = null
+        with(person) {
+            this?.name = "asdf"
+            this?.contactNumber = "1234"
+            this?.address = "wasd"
+            this?.displayInfo()
+        }
+    }
+
 }
