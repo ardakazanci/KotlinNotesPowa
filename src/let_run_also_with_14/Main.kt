@@ -142,9 +142,9 @@ fun main() {
 
     /**
     it              this
-
-    Return Result :        let             run,with
-    Return Object :        also            apply
+    ------------------------
+    Return Result :        let      |       run,with
+    Return Object :        also     |       apply
 
      */
 
