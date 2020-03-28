@@ -1,3 +1,4 @@
+/*
 package okhttp_interceptors_16
 
 
@@ -16,9 +17,11 @@ fun myHttpClient(): OkHttpClient {
 // Interceptor oluşturmak için Interceptor'dan extends edilir.
 class MyInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        /**
-         * API Çağrımız burada ele geçirilecek
-         */
+        */
+/**
+ * API Çağrımız burada ele geçirilecek
+ *//*
+
     }
 }
 
@@ -37,11 +40,13 @@ class ErrorInterceptor : Interceptor {
             }
             401 -> {
                 // Unauthorized Hata Mesajı
-                /**
-                Diyelim ki 401 hatası alırsak ( yani yetkisiz) , uygulama verilerini temizlemek /
-                kullanıcı oturumunu kapatmak ya da gerçekleştirmek
-                istediğimiz herhangi bir eylemi temizlemek için bir eylem gerçekleştirebiliriz.
-                 */
+                */
+/**
+Diyelim ki 401 hatası alırsak ( yani yetkisiz) , uygulama verilerini temizlemek /
+kullanıcı oturumunu kapatmak ya da gerçekleştirmek
+istediğimiz herhangi bir eylemi temizlemek için bir eylem gerçekleştirebiliriz.
+ *//*
+
             }
 
             403 -> {
@@ -126,3 +131,4 @@ override fun intercept(chain: Interceptor.Chain): Response {
 
 
 
+*/
