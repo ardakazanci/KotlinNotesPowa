@@ -210,6 +210,69 @@ fun main() {
     println("${sampleCos()}")
 
 
+    // LAMBDA İLE SIRALAMA İŞLEMİ ÖRNEĞİ
+
+    var names = arrayOf("A", "AA", "AAA", "AAAA", "AAAAAA")
+    names.sorted() // A AA AAA ...
+
+    // azalan şeklinde sıralamak için özel bir işlem ele aldık.
+    val namesSorted = names.sortedWith(compareBy {
+
+        -it.length
+
+    })
+
+    println(namesSorted)
+
+
+    //**** KOLEKSİYONLAR ÜZERİNDE LAMBDALARIN KULLANILMASI İLE ALAKALI ÖRNEKLER
+
+    // ForEach
+    val sampleCollection = listOf("Arda", "Ardaa", "Ardaaa", "Ardaaaa")
+    sampleCollection.forEach {
+        println(">$it")
+    }
+
+    // Filter
+    sampleCollection.filter {
+        it.length > 2
+    }
+
+    // Map
+    var samplePrices = listOf(1.0, 2.0, 3.0, 4.0)
+
+
+
+    samplePrices = samplePrices.map {
+        it - it * 90 / 100
+    }
+
+    samplePrices.forEach {
+        println("Satış Fiyatı : $it")
+    }
+
+    // Map ile sayı mı değil mi
+    var listNumberOrString = listOf("1", "2", "3", "arda")
+
+    listNumberOrString.map {
+        println(it.toIntOrNull()) // 1 2 3 null
+    }
+
+    listNumberOrString.mapNotNull {
+        println(it.toIntOrNull()) // 1 2 3
+    }
+
+
+    var priceSample = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 235, 3434)
+
+    var sum = priceSample.fold(0, { a, b ->
+
+        a + b
+
+    })
+
+    println("Fold Kullanım örneği : $sum")
+
 }
 
 
