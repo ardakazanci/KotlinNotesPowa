@@ -49,6 +49,56 @@ fun main() {
     val lambdaResult = multiplyLambdas(2, 5)
     println(lambdaResult)
 
+    var dortIslem: (Int, Int, String) -> String = { sayi1: Int, sayi2: Int, operation: String ->
+
+        when (operation) {
+            "+" -> {
+                "Toplama işleminin Sonucu ${sayi1 + sayi2}"
+            }
+            "-" -> {
+                "Çıkarma işleminin Sonucu ${sayi1 - sayi2}"
+            }
+            "*" -> {
+                "Çarpma işleminin Sonucu ${sayi1 * sayi2}"
+            }
+            "/" -> {
+                "Bölme işleminin Sonucu ${sayi1 / sayi2}"
+            }
+            else -> {
+                "Geçersiz Operatör"
+            }
+        }
+
+    }
+
+
+    println(dortIslem(1, 2, "+"))
+    println(dortIslem(1, 2, "/"))
+    println(dortIslem(1, 2, "*"))
+    println(dortIslem(1, 2, "-"))
+
+
+    // ARGÜMAN OLARAK LAMBDALARIN KULLANILMASI
+
+    // 2 Adet normal parametre alan 1 adet işlev - lambda alan fonksiyon örneği.
+    fun dortIslem(sayi1: Int, sayi2: Int, islem: (Int, Int) -> Int): Int {
+
+        val islemSonucu = islem(sayi1, sayi2)
+        println(islemSonucu)
+        return islemSonucu
+
+    }
+
+
+    val islemArgumanNormalLambda: (Int, Int) -> Int = { a, b ->
+        a * b
+    }
+
+    fun islemArgumanNormalFonksiyon(a: Int, b: Int): Int = a * b
+    // Normal bir şekilde lambda ifade argüman olarak gönderildi.
+    dortIslem(1, 2, islemArgumanNormalLambda)
+    // Lambdalar isimsiz fonksiyonlar olduğu için burada bir fonksiyonu normal bir şekilde gönderdik.
+    dortIslem(1, 2, ::islemArgumanNormalFonksiyon)
 
 }
 
