@@ -8,10 +8,21 @@ fun main() {
         it * it
     }
 
+    dummyLambda3 {
+        "Değer + $[it}"
+    }
+
 }
 
 fun dummyLambda2(b: (b: Int) -> Int) {
     println(b(15))
+}
+
+
+fun dummyLambda3(result: (a: Int) -> String) {
+
+    result(15)
+
 }
 
 
